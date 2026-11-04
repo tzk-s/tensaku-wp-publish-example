@@ -97,7 +97,7 @@ npm test                  # 公開フローのテスト（Node.js のテスト�
 
 - MySQL を使う通常の WordPress（レンタルサーバーなど）での動作。確認は Playground（SQLite）だけです。
 - WordPress 6.6 以降、PHP 8.1 / 8.2 での動作。
-- 「Playground で開く」のリンクからの起動。確認した環境から playground.wordpress.net に接続できなかったため、同じ Blueprint の手順（プラグインの読み込み・有効化・ログイン）はローカルの CLI で確かめました。
+- 「Playground で開く」のリンクからの起動。確認した環境から playground.wordpress.net に接続できなかったためです。代わりに、`playground/blueprint.json` の読み込み先を作業ブランチに変えたものをローカルの CLI で実行し、GitHub からプラグインを取得して有効化し、管理者としてログインした状態で管理画面と公開用の REST API が開けることを確かめました。
 - 複数人が同時に保存したときの扱い。後から保存した内容で上書きされます（このデモでは排他制御をしていません）。
 
 ## 構成
