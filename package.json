@@ -1,0 +1,18 @@
+{
+  "name": "tensaku-wp-publish-example",
+  "private": true,
+  "description": "ヘッドレス WordPress で、保存した内容を「公開に反映」するまで公開用の REST API に出さない公開フローのサンプル",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "playground": "wp-playground-cli server --port 9400 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --blueprint=./playground/blueprint-local.json",
+    "playground:test": "wp-playground-cli server --port 9400 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --mount=./tests/fixtures/tpd-test-helper.php:/wordpress/wp-content/mu-plugins/tpd-test-helper.php --blueprint=./playground/blueprint-local.json",
+    "test": "node --test tests/publish-flow.test.mjs",
+    "lint:php": "find plugin tests -name '*.php' -print0 | xargs -0 -n1 php -l"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "3.1.62"
+  }
+}

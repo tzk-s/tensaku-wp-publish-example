@@ -1,0 +1,30 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "TENSAKU Publish Demo（ローカル検証用）",
+    "description": "plugin/tensaku-publish-demo をマウントして有効化し、権限の確認用に編集者と購読者を作る。ローカルの一時環境専用（自動ログインはしない。未ログインでの REST の確認に影響するため）",
+    "author": "tzk-s"
+  },
+  "landingPage": "/wp-admin/admin.php?page=tpd-faq",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "TENSAKU Publish Demo",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "activatePlugin",
+      "pluginPath": "tensaku-publish-demo/tensaku-publish-demo.php"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; foreach ( array( 'editor', 'subscriber' ) as $role ) { if ( ! username_exists( 'demo-' . $role ) ) { wp_insert_user( array( 'user_login' => 'demo-' . $role, 'user_pass' => 'demo-' . $role . '-local-only', 'user_email' => 'demo-' . $role . '@example.com', 'role' => $role ) ); } }"
+    }
+  ]
+}
