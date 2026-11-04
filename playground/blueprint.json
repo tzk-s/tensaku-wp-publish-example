@@ -1,0 +1,38 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "TENSAKU Publish Demo",
+    "description": "よくある質問を、保存しただけでは公開用の REST API に反映しない公開フローのデモ（架空データ）",
+    "author": "tzk-s"
+  },
+  "landingPage": "/wp-admin/admin.php?page=tpd-faq",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "TENSAKU Publish Demo",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "git:directory",
+        "url": "https://github.com/tzk-s/tensaku-wp-publish-example",
+        "ref": "main",
+        "path": "plugin/tensaku-publish-demo"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "login",
+      "username": "admin"
+    }
+  ]
+}
