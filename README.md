@@ -59,6 +59,8 @@ flowchart LR
 
 ## ローカルでの起動とテスト
 
+Node.js 24.18.0 以上・npm 11.16.0 以上が必要です（WordPress Playground CLI の動作要件）。
+
 ```bash
 npm ci                    # WordPress Playground CLI のインストール（package-lock.json どおり）
 npm run playground        # 一時的な WordPress を起動（http://127.0.0.1:9400/）
