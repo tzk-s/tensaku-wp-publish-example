@@ -4,7 +4,8 @@
   "description": "ヘッドレス WordPress で、保存した内容を「公開に反映」するまで公開用の REST API に出さない公開フローのサンプル",
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
   },
   "scripts": {
     "playground": "wp-playground-cli server --port 9400 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --blueprint=./playground/blueprint-local.json",
