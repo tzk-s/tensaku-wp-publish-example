@@ -8,8 +8,8 @@
     "npm": ">=11.16.0"
   },
   "scripts": {
-    "playground": "wp-playground-cli server --port 9400 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --blueprint=./playground/blueprint-local.json",
-    "playground:test": "wp-playground-cli server --port 9400 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --mount=./tests/fixtures/tpd-test-helper.php:/wordpress/wp-content/mu-plugins/tpd-test-helper.php --blueprint=./playground/blueprint-local.json",
+    "playground": "wp-playground-cli server --port 9400 --php=8.5 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --blueprint=./playground/blueprint-local.json",
+    "playground:test": "wp-playground-cli server --port 9400 --php=8.5 --mount=./plugin/tensaku-publish-demo:/wordpress/wp-content/plugins/tensaku-publish-demo --mount=./tests/fixtures/tpd-test-helper.php:/wordpress/wp-content/mu-plugins/tpd-test-helper.php --blueprint=./playground/blueprint-local.json",
     "test": "node --test tests/publish-flow.test.mjs",
     "lint:php": "find plugin tests -name '*.php' -print0 | xargs -0 -n1 php -l"
   },
