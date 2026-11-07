@@ -93,12 +93,14 @@ npm test                  # 公開フローのテスト（Node.js のテスト�
 | 編集中の内容が不正なとき、「公開に反映」しても以前の公開値が残る | 成功 |
 | 保存して「公開に反映」すると、公開用の REST API が新しい内容と公開日時を返す（タグは取り除き、改行は `\n` にそろえる） | 成功 |
 
-確認した環境: WordPress 6.5.5 ／ PHP 8.5 と PHP 8.3（どちらも WordPress Playground CLI 3.1.62、SQLite）／ Node.js 24.22.2 ／ Linux。PHP の構文チェックは PHP 8.3.6 で行いました。Playground（`playground/` の Blueprint と `npm run playground`）は PHP 8.5 で起動します。PHP の細かい版（パッチ版）は Playground 側が決めるため、このリポジトリでは指定できません。
+確認した環境: WordPress 6.5.5 ／ PHP 8.5 と PHP 8.3（どちらも WordPress Playground CLI 3.1.62、SQLite）／ Node.js 24.22.2 ／ Linux。PHP の構文チェックは PHP 8.3.6 で行いました。Playground（`playground/` の Blueprint と `npm run playground`）は PHP 8.5 で起動します。
+
+MariaDB を使う通常の WordPress でも、同じテスト 10 件がすべて成功しました（WordPress 7.1.4 ／ PHP 8.5.12 ／ MariaDB 11.8.9、公式の Docker イメージで作った手元の一時環境。`TPD_BASE_URL` で接続先を切り替えて実行）。あわせて、日本語の値が文字化けせずに保存されること（utf8mb4）と、コンテナを再起動しても編集中・公開中の値と公開用の REST API の応答が変わらないことを確かめました。PHP の細かい版（パッチ版）は Playground 側が決めるため、このリポジトリでは指定できません。
 
 ### 確かめていないこと
 
-- MySQL を使う通常の WordPress（レンタルサーバーなど）での動作。確認は Playground（SQLite）だけです。
-- WordPress 6.6 以降、PHP 8.1 / 8.2 での動作。
+- MySQL での動作（MariaDB では確認済み）と、レンタルサーバーなど実際の公開環境での動作。
+- PHP 8.1 / 8.2 での動作。WordPress は 6.5.5（Playground）と 7.1.4（MariaDB）だけで確認しています。
 - 「Playground で開く」のリンクからの起動。確認した環境から playground.wordpress.net に接続できなかったためです。代わりに、`playground/blueprint.json` の読み込み先を作業ブランチに変えたものをローカルの CLI で実行し、GitHub からプラグインを取得して有効化し、管理者としてログインした状態で管理画面と公開用の REST API が開けることを確かめました。
 - 複数人が同時に保存したときの扱い。後から保存した内容で上書きされます（このデモでは排他制御をしていません）。
 
