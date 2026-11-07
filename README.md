@@ -93,7 +93,7 @@ npm test                  # 公開フローのテスト（Node.js のテスト�
 | 編集中の内容が不正なとき、「公開に反映」しても以前の公開値が残る | 成功 |
 | 保存して「公開に反映」すると、公開用の REST API が新しい内容と公開日時を返す（タグは取り除き、改行は `\n` にそろえる） | 成功 |
 
-確認した環境: WordPress 6.5.5 ／ PHP 8.3（WordPress Playground CLI 3.1.62、SQLite）／ Node.js 24.22.2 ／ Linux。PHP の構文チェックは PHP 8.3.6 で行いました。
+確認した環境: WordPress 6.5.5 ／ PHP 8.5 と PHP 8.3（どちらも WordPress Playground CLI 3.1.62、SQLite）／ Node.js 24.22.2 ／ Linux。PHP の構文チェックは PHP 8.3.6 で行いました。Playground（`playground/` の Blueprint と `npm run playground`）は PHP 8.5 で起動します。PHP の細かい版（パッチ版）は Playground 側が決めるため、このリポジトリでは指定できません。
 
 ### 確かめていないこと
 
