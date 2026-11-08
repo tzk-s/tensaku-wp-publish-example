@@ -1,5 +1,8 @@
 <?php
 /**
+ * Copyright (c) 2026 tzk-s
+ * License: GPL-2.0-or-later（本文は plugin/tensaku-publish-demo/LICENSE）
+ *
  * テスト専用の mu-plugin（npm run playground:test のときだけマウントする。プラグイン本体には含めない）
  *
  * 保存の画面では不正な値を保存できないため、「公開に反映するときにも検証し直す」ことを確かめる目的で、

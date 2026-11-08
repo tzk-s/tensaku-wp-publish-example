@@ -5,7 +5,14 @@
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
+ * Author:            tzk-s
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       tensaku-publish-demo
+ *
+ * Copyright (c) 2026 tzk-s
+ * このプラグインは GNU General Public License v2 またはそれ以降のバージョンで提供します（同梱の LICENSE）。
+ * ポートフォリオ用のデモで、本番環境での動作・セキュリティ・互換性の保証やサポートはありません。
  *
  * 【全体の流れ】
  *   1. 管理画面「よくある質問（公開デモ）」で文言を直し「下書きを保存」を押す … 編集中の内容（tpd_faq_draft）だけが変わる

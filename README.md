@@ -114,7 +114,8 @@ MariaDB を使う通常の WordPress でも、同じテスト 10 件がすべて
 │   │   ├── data.php               # 保存先・架空の初期データ・無害化と検証・公開する形への変換・公開処理
 │   │   ├── admin.php              # 管理画面（表示・保存・公開と、権限・nonce の確認）
 │   │   └── rest.php               # 公開用の読み取り専用 REST API
-│   └── uninstall.php              # 削除したとき、このデモの値を消す
+│   ├── uninstall.php              # 削除したとき、このデモの値を消す
+│   └── LICENSE                    # GPL v2 のライセンス本文
 ├── playground/
 │   ├── blueprint.json             # 「Playground で開く」用（main ブランチのプラグインを読み込む）
 │   └── blueprint-local.json       # ローカルの一時環境用（編集者・購読者も作る）
@@ -143,9 +144,25 @@ MariaDB を使う通常の WordPress でも、同じテスト 10 件がすべて
 
 ## 著作権・ライセンス
 
-- Copyright (c) 2026 tzk-s. All rights reserved.
-- このリポジトリはポートフォリオとして公開しているもので、オープンソースライセンスは付与していません。コードの再利用・再配布・他の制作物への組み込みは許諾していません（著作権は作者に留保します）。
-- 内容を評価するために、clone して手元や WordPress Playground で実行・テストすることは問題ありません。
-- なお、GitHub の利用規約により、公開リポジトリは GitHub 上で閲覧・fork できます。
-- WordPress Playground CLI は、それぞれのライセンスに従います。このリポジトリには同梱せず、`npm ci` で取得します。
-- `docs/images/` の画像は、このプラグインの管理画面（WordPress の管理画面の上に表示）と REST API の応答を撮影したものです。ロゴ・フォントは含みません。
+Copyright (c) 2026 tzk-s
+
+リポジトリの中で、ライセンスが 2 つに分かれています。
+
+| 対象 | ライセンス |
+| --- | --- |
+| WordPress のプラグイン（`plugin/tensaku-publish-demo/`。架空の初期データを含む）、テスト専用の mu-plugin（`tests/fixtures/tpd-test-helper.php`） | [GNU General Public License v2 またはそれ以降](plugin/tensaku-publish-demo/LICENSE)（GPL-2.0-or-later） |
+| 上記以外（README・`docs/images/` のスクリーンショット・Playground の設定（`playground/`）・公開フローのテスト（`tests/publish-flow.test.mjs`）・`package.json`・`package-lock.json`） | All rights reserved。評価のために clone して手元や WordPress Playground で実行・テストすることは問題ありません。それ以外の再利用・再配布は許諾していません |
+
+- プラグインを GPL にしているのは、WordPress のプラグインは WordPress と同じ GPL で配布するのが WordPress の方針だからです。GPL の条件に従えば、プラグインの利用・改変・再配布ができます。著作権は作者に残り、再配布するときは著作権表示とライセンスを残す必要があります。
+- プラグインは PHP のソースをそのまま配布する形で、ビルドの工程はありません。`plugin/tensaku-publish-demo/` のフォルダーをそのまま WordPress に入れれば動き、インストールや削除の処理（有効化時の初期データの登録・`uninstall.php`）もフォルダーの中に含まれています。
+- テスト専用の mu-plugin は、プラグイン本体には含めていませんが、WordPress の中で動くプラグインのコードなので、プラグインと同じ GPL にしています。
+- Playground の設定・テスト・`package.json` は、プラグインを配布・インストールするためのものではなく、このデモを試したり確かめたりするための一時環境用です。そのため GPL の対象には含めていません。
+- GitHub の利用規約により、公開リポジトリは GitHub 上で閲覧・fork できます。
+- 依存ライブラリ（WordPress Playground CLI など）はそれぞれのライセンスに従います（`package-lock.json` 参照）。リポジトリにはライブラリ本体を含めず、`npm ci` で取得します。プラグインにもライブラリのコードは入っていません。
+- フォント・元サイトのデザイン素材・第三者の画像は含めていません。含まれる画像は、このデモの画面のスクリーンショット（`docs/images/`。WordPress の管理画面が写っています）だけです。
+
+### デモの利用について
+
+このリポジトリは、WordPress の実装例を示すポートフォリオ用のデモです。プラグインの利用・改変・再配布の条件と、無保証・責任の制限については、同梱の GPL のライセンス本文（`plugin/tensaku-publish-demo/LICENSE`）をご確認ください。
+
+本番環境での動作・セキュリティ・互換性は保証しておらず、導入・運用のサポートは提供していません。実際のサイトに導入する場合は、ご自身の環境で事前に検証してください。
