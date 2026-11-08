@@ -2,6 +2,7 @@
   "name": "tensaku-wp-publish-example",
   "private": true,
   "description": "ヘッドレス WordPress で、保存した内容を「公開に反映」するまで公開用の REST API に出さない公開フローのサンプル",
+  "license": "SEE LICENSE IN README.md",
   "type": "module",
   "engines": {
     "node": ">=24.18.0",
